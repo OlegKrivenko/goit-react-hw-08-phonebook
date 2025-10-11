@@ -1,18 +1,16 @@
-import Container from './components/Container';
-import ContactForm from './components/ContactForm';
-import ContactList from './components/ContactList';
-import ContactFilter from './components/ContactFilter';
+import ContactFilter from '../../components/ContactFilter';
+import ContactEditor from '../../components/ContactForm';
+import ContactList from '../../components/ContactList';
 import { useDispatch, useSelector } from 'react-redux';
+import { selectError, selectLoading } from 'redux/contacts/selectors';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/contacts/operations';
-import { selectError, selectLoading } from 'redux/contacts/selectors';
-import Register from './pages/Register';
-import Login from 'pages/Login';
+import Container from 'components/Container';
 
-const App = () => {
+const Contacts = () => {
   const dispatch = useDispatch();
-  const error = useSelector(selectError);
   const isLoading = useSelector(selectLoading);
+  const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -20,11 +18,8 @@ const App = () => {
 
   return (
     <Container>
-      <Register />
-      <Login />
-
       <h1>Phonebook</h1>
-      <ContactForm />
+      <ContactEditor />
       <h2>Contacts</h2>
       <ContactFilter />
       {isLoading && <p>Contacts is loading, please wait...</p>}
@@ -34,4 +29,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Contacts;

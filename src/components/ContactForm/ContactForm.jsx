@@ -4,7 +4,7 @@ import { Notify } from 'notiflix';
 import { selectContacts } from 'redux/contacts/selectors';
 import { addContact } from 'redux/contacts/operations';
 
-import css from './ContactEditor.module.css';
+import css from './ContactForm.module.css';
 
 const ContactEditor = () => {
   const [name, setName] = useState('');
