@@ -1,36 +1,16 @@
-import Container from './components/Container';
-import ContactForm from './components/ContactForm';
-import ContactList from './components/ContactList';
-import ContactFilter from './components/ContactFilter';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { fetchContacts } from 'redux/contacts/operations';
-import { selectError, selectLoading } from 'redux/contacts/selectors';
-import Register from './pages/Register';
-import Login from 'pages/Login';
+import { Route, Routes } from 'react-router-dom';
+import Layout from 'components/Layout';
+import { lazy } from 'react';
+
+const HomePage = lazy(() => import('pages/Home'));
 
 const App = () => {
-  const dispatch = useDispatch();
-  const error = useSelector(selectError);
-  const isLoading = useSelector(selectLoading);
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
   return (
-    <Container>
-      <Register />
-      <Login />
-
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
-      <ContactFilter />
-      {isLoading && <p>Contacts is loading, please wait...</p>}
-      {error && <p>{error}</p>}
-      <ContactList />
-    </Container>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+      </Route>
+    </Routes>
   );
 };
 
