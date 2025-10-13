@@ -1,5 +1,5 @@
 import ContactFilter from '../../components/ContactFilter';
-import ContactEditor from '../../components/ContactForm';
+import ContactForm from '../../components/ContactForm';
 import ContactList from '../../components/ContactList';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectError, selectLoading } from 'redux/contacts/selectors';
@@ -19,7 +19,7 @@ const Contacts = () => {
   return (
     <Container>
       <h1>Phonebook</h1>
-      <ContactEditor />
+      <ContactForm />
       <h2>Contacts</h2>
       <ContactFilter />
       {isLoading && <p>Contacts is loading, please wait...</p>}
