@@ -23,6 +23,8 @@ const contactsSlice = createSlice({
         state.contactsArray.push(action.payload);
       })
       .addCase(deleteContact.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
         const index = state.contactsArray.findIndex(
           contact => contact.id === action.payload
         );
