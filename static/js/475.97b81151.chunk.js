@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[475],{2475:function(e,t,c){c.r(t),c.d(t,{default:function(){return r}});var n=c(184),r=function(){return(0,n.jsxs)("div",{className:"",children:[(0,n.jsx)("h1",{className:"",children:"Wellcome to YourContact"}),(0,n.jsx)("h2",{className:"",children:"Please Login or Register to continue"})]})}}}]);
+//# sourceMappingURL=475.97b81151.chunk.js.map
