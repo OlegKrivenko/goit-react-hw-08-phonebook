@@ -1,0 +1,110 @@
+:root {
+  /* ================= LIGHT THEME ================= */
+
+  /* -------- Фоны -------- */
+  --bg-page: #f9fafb; /* Основной фон страницы */
+  --bg-block: #ffffff; /* Фон карточек и форм */
+  --bg-header: #2563eb; /* Фон header/navbar */
+  --bg-modal: #ffffff; /* Фон модалки */
+
+  /* -------- Текст -------- */
+  --text-main: #111827; /* Основной текст */
+  --text-secondary: #4b5563; /* Второстепенный текст */
+  --text-inverse: #ffffff; /* Текст на тёмном фоне */
+  --text-placeholder: #9ca3af; /* Placeholder input */
+
+  /* -------- Кнопки -------- */
+  --btn-primary-bg: #757575; /* Основная кнопка */
+  --btn-primary-bg-hover: #616161; /* Hover основной кнопки */
+  --btn-primary-bg-active: #505050; /* Active основной кнопки */
+  --btn-primary-text: #000000; /* Текст основной кнопки */
+
+  --btn-secondary-bg: #6b7280; /* Второстепенная кнопка */
+  --btn-secondary-bg-hover: #4b5563; /* Hover второстепенной */
+  --btn-secondary-bg-active: #374151; /* Active второстепенной */
+  --btn-secondary-text: #ffffff; /* Текст второстепенной кнопки */
+
+  /* -------- Поля ввода -------- */
+  --input-bg: #ffffff; /* Фон input */
+  --input-border: #d1d5db; /* Граница input */
+  --input-border-hover: #9ca3af; /* Hover input */
+  --input-border-focus: #2563eb; /* Focus input */
+  --input-text: #111827; /* Текст внутри input */
+  --input-placeholder: #9ca3af; /* Placeholder */
+  --input-disabled-bg: #f3f4f6; /* Заблокированный input */
+
+  /* -------- Карточки / списки -------- */
+  --card-bg: #ffffff; /* Фон карточки */
+  --card-border: #e5e7eb; /* Граница карточки */
+  --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Тень карточки */
+  --card-hover-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Hover карточки */
+
+  /* -------- Статусы -------- */
+  --status-error: #dc2626;
+  --status-success: #16a34a;
+  --status-warning: #f59e0b;
+
+  /* -------- Отступы -------- */
+  --space-xs: 4px; /*   (extra small) */
+  --space-sm: 8px; /*   (small) */
+  --space-md: 16px; /*  (medium) */
+  --space-lg: 24px; /*  (large) */
+  --space-xl: 32px; /*  (extra large) */
+
+  /* -------- Радиусы -------- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* -------- Тени -------- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+
+  /* -------- Шрифты -------- */
+  --font-family-base: 'DM Sans', sans-serif;
+  --font-size-base: 16px;
+  --font-size-sm: 14px;
+  --font-size-lg: 18px;
+  --font-weight-normal: 400;
+  --font-weight-bold: 600;
+
+  /* ================= DARK THEME ================= */
+
+  --bg-page-dark: #1f2937;
+  --bg-block-dark: #374151;
+  --bg-header-dark: #3b82f6;
+  --bg-modal-dark: #374151;
+
+  --text-main-dark: #f9fafb;
+  --text-secondary-dark: #d1d5db;
+  --text-inverse-dark: #111827;
+  --text-placeholder-dark: #9ca3af;
+
+  --btn-primary-bg-dark: #3b82f6;
+  --btn-primary-bg-hover-dark: #2563eb;
+  --btn-primary-bg-active-dark: #1a3a8a;
+  --btn-primary-text-dark: #ffffff;
+
+  --btn-secondary-bg-dark: #6b7280;
+  --btn-secondary-bg-hover-dark: #4b5563;
+  --btn-secondary-bg-active-dark: #374151;
+  --btn-secondary-text-dark: #ffffff;
+
+  --input-bg-dark: #374151;
+  --input-border-dark: #4b5563;
+  --input-border-hover-dark: #6b7280;
+  --input-border-focus-dark: #3b82f6;
+  --input-text-dark: #f9fafb;
+  --input-placeholder-dark: #9ca3af;
+  --input-disabled-bg-dark: #1f2937;
+
+  --card-bg-dark: #374151;
+  --card-border-dark: #4b5563;
+  --card-shadow-dark: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --card-hover-shadow-dark: 0 4px 6px rgba(0, 0, 0, 0.3);
+
+  --status-error-dark: #f87171;
+  --status-success-dark: #4ade80;
+  --status-warning-dark: #fbbf24;
+}
