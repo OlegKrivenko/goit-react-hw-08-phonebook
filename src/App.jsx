@@ -21,7 +21,7 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <>
       {isRefreshing ? (
         <p>Refreshing user...</p>
       ) : (
@@ -61,7 +61,7 @@ const App = () => {
           </Route>
         </Routes>
       )}
-    </div>
+    </>
   );
 };
 

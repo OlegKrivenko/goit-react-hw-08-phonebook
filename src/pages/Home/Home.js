@@ -1,9 +1,15 @@
+import css from './Home.module.css';
+
 const Home = () => {
   return (
-    <div className="">
-      <h1 className="">Wellcome to YourContact</h1>
-      <h2 className="">Please Login or Register to continue</h2>
-    </div>
+    <section className="section-page">
+      <div className="container-page">
+        <h1 className={css['home__h1']}>Wellcome to Your Contact !</h1>
+        <h2 className={css['home__h2']}>
+          Please Login or Register to continue
+        </h2>
+      </div>
+    </section>
   );
 };
 

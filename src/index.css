@@ -3,6 +3,29 @@
 @import './styles/base/reset.css';
 @import './styles/base/variables.css';
 
+html,
 body {
+  height: 100%;
   font-family: var(--font-family-base);
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /*растягивает по высоте окна */
+}
+
+.section-page {
+  flex: 1;
+  position: relative;
+  height: 100vh; /* растягиваем секцию на весь экран */
+  background-color: rgb(240, 240, 240);
+}
+
+.container-page {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* сдвигаем на центр */
+  text-align: center;
 }
