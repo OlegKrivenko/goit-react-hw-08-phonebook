@@ -84,6 +84,19 @@ const ContactEditor = () => {
       <button type="submit" className={css.button}>
         Add contact
       </button>
+
+      {/* ================================================== */}
+      <div className={css['input-container']}>
+        <input
+          placeholder="Enter text"
+          className={css['input-field']}
+          type="text"
+        />
+        <label for="input-field" className={css['input-label']}>
+          Enter text
+        </label>
+        <span className={css['input-highlight']}></span>
+      </div>
     </form>
   );
 };

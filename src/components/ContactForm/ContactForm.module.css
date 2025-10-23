@@ -1,32 +1,59 @@
-.form {
-   display: inline-block;
-   width: 350px;
-   padding: 10px;
-   border: 1px solid grey;
-   border-radius: 3px;
-   margin-bottom: 20px;
+/* =================================================== */
+.input-container {
+  position: relative;
+  margin: 20px;
+  width: 100%;
+  max-width: 320px;
 }
-.label {
-   display: block;
-   font-size: 20px;
+
+/* Поле ввода */
+.input-field {
+  display: block;
+  width: 100%;
+  padding: 12px 0 8px;
+  font-size: 16px;
+  color: #222;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  background: transparent;
+  outline: none;
+  transition: border-color 0.3s ease;
 }
-.input {
-   display: block;
-   margin-top: 5px;
-   margin-bottom: 15px;
-   border-radius: 3px;
-   border: 1px solid grey;
+
+.input-field:focus {
+  border-color: #007bff;
 }
-.input:focus,
-.input:hover {
-   box-shadow: 0 0 3px 3px rgba(62, 98, 255, 0.452);
+
+/* Метка */
+.input-label {
+  position: absolute;
+  top: 12px;
+  left: 0;
+  font-size: 16px;
+  color: #999;
+  pointer-events: none;
+  transition: all 0.3s ease;
 }
-.button {
-   background-color: white;
-   border-radius: 3px;
-   border: 1px solid grey;
+
+/* Поднятие метки при фокусе или заполнении */
+.input-field:focus + .input-label,
+.input-field:not(:placeholder-shown) + .input-label {
+  top: -10px;
+  font-size: 13px;
+  color: #007bff;
 }
-.button:focus,
-.button:hover {
-   background-color: rgb(219, 219, 219);
+
+/* Подсветка линии */
+.input-highlight {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: #007bff;
+  transition: width 0.3s ease;
+}
+
+.input-field:focus + .input-label + .input-highlight {
+  width: 100%;
 }
