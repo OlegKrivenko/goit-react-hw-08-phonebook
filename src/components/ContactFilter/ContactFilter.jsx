@@ -11,8 +11,7 @@ const ContactFilter = () => {
   const onChangeFilter = event => {
     const inputValue = event.currentTarget.value;
 
-    const nameRegex =
-      /^[a-zA-Zа-яА-ЯёЁіїєІЇЄ' -]{1,50}( [a-zA-Zа-яА-ЯёЁіїєІЇЄ' -]{1,50})*$/;
+    const nameRegex = /^[a-zA-Zа-яА-ЯёЁіїєІЇЄ' -]*$/;
     if (nameRegex.test(inputValue)) {
       dispatch(createFilter(inputValue));
     }
