@@ -7,37 +7,45 @@ import { addContact } from 'redux/contacts/operations';
 import css from './ContactForm.module.css';
 
 const ContactEditor = () => {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    number: '',
+  });
 
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
-  const handleChange = event => {
-    const { name, value } = event.currentTarget;
+  const handleChange = e => {
+    const { name, value } = e.target;
 
-    switch (name) {
-      case 'name':
-        const nameRegex = /^[a-zA-Zа-яА-ЯіїєІЇЄ' -]*$/;
-        if (nameRegex.test(value)) {
-          setName(value);
+    setFormData(prev => {
+      switch (name) {
+        case 'name': {
+          const nameRegex = /^[a-zA-Zа-яА-ЯёЁіїєІЇЄ' -]*$/;
+          if (!nameRegex.test(value)) {
+            return prev; // не обновляем, если символ не подходит
+          }
+          break;
         }
-        break;
-
-      case 'number':
-        const phoneRegex = /^[0-9+()\s-]*$/;
-        if (phoneRegex.test(value)) {
-          setNumber(value);
+        case 'number': {
+          const phoneRegex = /^[0-9+()\s-]*$/;
+          if (!phoneRegex.test(value)) {
+            return prev;
+          }
+          break;
         }
-        break;
+        default:
+          break;
+      }
 
-      default:
-        break;
-    }
+      return { ...prev, [name]: value };
+    });
   };
 
-  const handleSubmit = event => {
-    event.preventDefault();
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    const { name, number } = formData;
 
     const isExist = contacts.find(
       contact => contact.name.toLowerCase() === name.toLowerCase()
@@ -49,16 +57,12 @@ const ContactEditor = () => {
     }
 
     dispatch(addContact({ name, number }));
-    resetForm();
-  };
-
-  const resetForm = () => {
-    setName('');
-    setNumber('');
+    setFormData({ name: '', number: '' });
   };
 
   return (
     <form className={css.form} onSubmit={handleSubmit}>
+      {/* Name input */}
       <div className={css['input-container']}>
         <input
           id="name"
@@ -67,8 +71,8 @@ const ContactEditor = () => {
           required
           placeholder=" "
           className={css.input}
+          value={formData.name}
           onChange={handleChange}
-          value={name}
         />
         <label htmlFor="name" className={css.label}>
           Name
@@ -76,6 +80,7 @@ const ContactEditor = () => {
         <div className={css.underline}></div>
       </div>
 
+      {/* Number input */}
       <div className={css['input-container']}>
         <input
           id="number"
@@ -84,8 +89,8 @@ const ContactEditor = () => {
           required
           placeholder=" "
           className={css.input}
+          value={formData.number}
           onChange={handleChange}
-          value={number}
         />
         <label htmlFor="number" className={css.label}>
           Number

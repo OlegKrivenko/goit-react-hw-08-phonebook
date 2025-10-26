@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/authOperations';
+import css from './Login.module.css';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +12,27 @@ const Login = () => {
 
   const handleChange = e => {
     const { name, value } = e.target;
+
     setFormData(prev => {
+      switch (name) {
+        case 'email':
+          const emailRegex = /^[a-zA-Z0-9@._+-]*$/;
+          if (!emailRegex.test(value)) {
+            return prev;
+          }
+          break;
+
+        case 'password':
+          const passwordRegex = /^[A-Za-z\d!@#$%^&*()\-_=+]*$/;
+          if (!passwordRegex.test(value)) {
+            return prev;
+          }
+          break;
+
+        default:
+          break;
+      }
+
       return { ...prev, [name]: value };
     });
   };
@@ -26,32 +47,51 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h1 className="">Login to your account</h1>
+    <section className="section-page">
+      <div className={css.box}>
+        <h1 className={css.title}>Login to your account</h1>
 
-      <form onSubmit={handleSubmit} autoComplete="off">
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          className=""
-          placeholder="Email"
-          onChange={handleChange}
-        />
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          className=""
-          placeholder="Password"
-          onChange={handleChange}
-        />
+        <form className={css.form} onSubmit={handleSubmit}>
+          <div className={css['input-container']}>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              placeholder=" "
+              className={css.input}
+              onChange={handleChange}
+              value={formData.email}
+            />
+            <label htmlFor="email" className={css.label}>
+              Email
+            </label>
+            <div className={css.underline}></div>
+          </div>
 
-        <button type="submit" className="">
-          Login
-        </button>
-      </form>
-    </div>
+          <div className={css['input-container']}>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              required
+              placeholder=" "
+              className={css.input}
+              onChange={handleChange}
+              value={formData.password}
+            />
+            <label htmlFor="password" className={css.label}>
+              Password
+            </label>
+            <div className={css.underline}></div>
+          </div>
+
+          <button type="submit" className={css.button}>
+            Log In
+          </button>
+        </form>
+      </div>
+    </section>
   );
 };
 

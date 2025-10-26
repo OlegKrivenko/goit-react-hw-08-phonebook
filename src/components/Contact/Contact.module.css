@@ -7,6 +7,7 @@
 }
 .box {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   width: 450px;
 }
@@ -25,7 +26,7 @@
 }
 .box > :nth-child(3) {
   width: auto;
-  margin-left: auto; /* кнопка центр */
+  margin-left: auto; /* кнопка спарава */
 }
 
 /* ============  Кнопка удаления  =================================== */

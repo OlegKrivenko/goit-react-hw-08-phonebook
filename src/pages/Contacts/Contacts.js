@@ -18,15 +18,17 @@ const Contacts = () => {
   }, [dispatch]);
 
   return (
-    <Container>
-      <p className={css.title}>Phonebook</p>
-      <ContactForm />
-      <p className={css.subtitle}>Contacts list</p>
-      <ContactFilter />
-      {isLoading && <p>Contacts is loading, please wait...</p>}
-      {error && <p>{error}</p>}
-      <ContactList />
-    </Container>
+    <section className="section-page">
+      <Container>
+        <p className={css.title}>Phonebook</p>
+        <ContactForm />
+        <p className={css.subtitle}>Contacts list</p>
+        <ContactFilter />
+        {isLoading && <p>Contacts is loading, please wait...</p>}
+        {error && <p>{error}</p>}
+        <ContactList />
+      </Container>
+    </section>
   );
 };
 

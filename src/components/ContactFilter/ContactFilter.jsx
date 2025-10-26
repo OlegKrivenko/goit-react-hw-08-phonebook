@@ -11,8 +11,8 @@ const ContactFilter = () => {
   const onChangeFilter = event => {
     const inputValue = event.currentTarget.value;
 
-    // Разрешаем только буквы, пробелы, апостроф и дефис
-    const nameRegex = /^[a-zA-Zа-яА-Я' -]*$/;
+    const nameRegex =
+      /^[a-zA-Zа-яА-ЯёЁіїєІЇЄ' -]{1,50}( [a-zA-Zа-яА-ЯёЁіїєІЇЄ' -]{1,50})*$/;
     if (nameRegex.test(inputValue)) {
       dispatch(createFilter(inputValue));
     }
