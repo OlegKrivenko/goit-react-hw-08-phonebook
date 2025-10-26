@@ -1,20 +1,67 @@
 .contact:not(:last-child) {
-  margin-bottom: 5px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #ccc;
 }
 .contact:last-child {
   margin-bottom: 10px;
 }
 .box {
   display: flex;
-  justify-content: space-between;
-  width: 480px;
+  align-items: center;
+  width: 450px;
 }
-.button {
-  background-color: white;
-  border-radius: 3px;
-  border: 1px solid grey;
+.box > * {
+  width: 150px; /* фиксированная ширина для всех элементов */
+  flex-shrink: 0; /* не сжимаются */
+  flex-grow: 0; /* не растягиваются */
+  overflow-wrap: break-word; /* перенос слов для длинного текста */
 }
-.button:focus,
-.button:hover {
-  background-color: rgb(219, 219, 219);
+/* Выравнивание */
+.box > :nth-child(1) {
+  text-align: left; /* имя слева, перенос текс  та */
+}
+.box > :nth-child(2) {
+  text-align: center; /* номер слева */
+}
+.box > :nth-child(3) {
+  width: auto;
+  margin-left: auto; /* кнопка центр */
+}
+
+/* ============  Кнопка удаления  =================================== */
+/* Кнопка с иконкой удаления */
+.iconButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: transparent; /* прозрачный фон */
+  padding: 4px; /* немного внутреннего отступа */
+  outline: none; /* визуальный фокус задаем отдельно */
+
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* Hover состояние */
+.iconButton:hover {
+  color: #e74c3c; /* красный при наведении */
+  transform: scale(1.2); /* чуть увеличиваем иконку */
+}
+
+/* Активное состояние при клике */
+.iconButton:active {
+  transform: scale(1.1);
+}
+
+/* Фокус клавиатурой (Tab) */
+.iconButton:focus {
+  border-radius: 5px;
+  outline: 2px solid #007bff; /* видимый фокус */
+  outline-offset: 2px;
+}
+
+/* Иконка внутри кнопки */
+.iconButton svg {
+  font-size: 24px;
+  /* display: block; */
 }

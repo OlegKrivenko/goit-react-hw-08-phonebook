@@ -1,15 +1,67 @@
-.label {
-   display: block;
-   font-size: 20px;
+.box {
+  margin-bottom: 25px;
 }
+/* ========================================== */
+.input-container {
+  position: relative;
+  width: 350px;
+  margin: 16px 0;
+}
+
+/* Поле */
 .input {
-   display: block;
-   margin-top: 5px;
-   margin-bottom: 15px;
-   border-radius: 3px;
-   border: 1px solid grey;
+  width: 100%;
+  padding: 12px 0 8px;
+  font-size: 16px;
+  color: #333;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  transition: border-color 0.3s ease;
 }
-.input:focus,
-.input:hover {
-   box-shadow: 0 0 3px 3px rgba(62, 98, 255, 0.452);
+
+/* Убираем рамку при фокусе */
+.input:focus {
+  outline: none;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/* Label */
+.label {
+  position: absolute;
+  left: 0;
+  top: 12px;
+  font-size: 16px;
+  color: #aaa;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* Анимация при фокусе или наличии текста */
+.input:focus ~ .label,
+.input:not(:placeholder-shown) ~ .label {
+  top: -10px;
+  font-size: 14px;
+  color: #007bff;
+}
+
+/* Нижняя линия */
+.underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: #007bff;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+}
+
+/* Активная линия */
+.input:focus ~ .underline,
+.input:not(:placeholder-shown) ~ .underline {
+  transform: scaleX(1);
 }

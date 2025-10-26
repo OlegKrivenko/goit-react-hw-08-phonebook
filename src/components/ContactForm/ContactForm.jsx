@@ -18,11 +18,17 @@ const ContactEditor = () => {
 
     switch (name) {
       case 'name':
-        setName(value);
+        const nameRegex = /^[a-zA-Zа-яА-ЯіїєІЇЄ' -]*$/;
+        if (nameRegex.test(value)) {
+          setName(value);
+        }
         break;
 
       case 'number':
-        setNumber(value);
+        const phoneRegex = /^[0-9+()\s-]*$/;
+        if (phoneRegex.test(value)) {
+          setNumber(value);
+        }
         break;
 
       default:
@@ -53,50 +59,43 @@ const ContactEditor = () => {
 
   return (
     <form className={css.form} onSubmit={handleSubmit}>
-      <label className={css.label}>
-        Name
+      <div className={css['input-container']}>
         <input
-          className={css.input}
-          type="text"
+          id="name"
           name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          type="text"
           required
+          placeholder=" "
+          className={css.input}
           onChange={handleChange}
           value={name}
         />
-      </label>
+        <label htmlFor="name" className={css.label}>
+          Name
+        </label>
+        <div className={css.underline}></div>
+      </div>
 
-      <label className={css.label}>
-        Number
+      <div className={css['input-container']}>
         <input
-          className={css.input}
-          type="tel"
+          id="number"
           name="number"
-          pattern="\+?\d{1,4}?[\-\.\s]?\(?\d{1,3}?\)?[\-\.\s]?\d{1,4}[\-\.\s]?\d{1,4}[\-\.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          type="tel"
           required
+          placeholder=" "
+          className={css.input}
           onChange={handleChange}
           value={number}
         />
-      </label>
+        <label htmlFor="number" className={css.label}>
+          Number
+        </label>
+        <div className={css.underline}></div>
+      </div>
 
       <button type="submit" className={css.button}>
         Add contact
       </button>
-
-      {/* ================================================== */}
-      <div className={css['input-container']}>
-        <input
-          placeholder="Enter text"
-          className={css['input-field']}
-          type="text"
-        />
-        <label for="input-field" className={css['input-label']}>
-          Enter text
-        </label>
-        <span className={css['input-highlight']}></span>
-      </div>
     </form>
   );
 };

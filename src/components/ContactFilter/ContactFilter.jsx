@@ -9,24 +9,34 @@ const ContactFilter = () => {
   const value = useSelector(selectFilter);
 
   const onChangeFilter = event => {
-    const value = event.currentTarget.value;
-    dispatch(createFilter(value));
+    const inputValue = event.currentTarget.value;
+
+    // Разрешаем только буквы, пробелы, апостроф и дефис
+    const nameRegex = /^[a-zA-Zа-яА-Я' -]*$/;
+    if (nameRegex.test(inputValue)) {
+      dispatch(createFilter(inputValue));
+    }
   };
 
   return (
-    <label className={css.label}>
-      Find contacts by name
-      <input
-        className={css.input}
-        type="text"
-        name="name"
-        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-        required
-        value={value}
-        onChange={onChangeFilter}
-      />
-    </label>
+    <div className={css.box}>
+      <div className={css['input-container']}>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          required
+          placeholder=" "
+          className={css.input}
+          value={value}
+          onChange={onChangeFilter}
+        />
+        <label htmlFor="name" className={css.label}>
+          Find contacts by name
+        </label>
+        <div className={css.underline}></div>
+      </div>
+    </div>
   );
 };
 

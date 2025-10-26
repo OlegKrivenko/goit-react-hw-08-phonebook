@@ -23,12 +23,16 @@ const contactsSlice = createSlice({
         state.contactsArray.push(action.payload);
       })
       .addCase(deleteContact.fulfilled, (state, action) => {
+        console.log(state);
         state.isLoading = false;
         state.error = null;
+
         const index = state.contactsArray.findIndex(
-          contact => contact.id === action.payload
+          contact => contact.id === action.payload.id
         );
-        state.contactsArray.splice(index, 1);
+        if (index !== -1) {
+          state.contactsArray.splice(index, 1);
+        }
       })
 
       // Общая обработка pending
