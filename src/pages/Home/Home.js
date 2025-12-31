@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <section className="section-page">
       <div className="container-page">
-        <h1 className={css['home__h1']}>Wellcome to Your Contact !</h1>
+        <h1 className={css['home__h1']}>Wellcome to Your contacts!</h1>
         <h2 className={css['home__h2']}>
           {!isLoggedIn && 'Please Login or Register to continue'}
         </h2>
